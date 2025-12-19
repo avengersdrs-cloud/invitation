@@ -18,6 +18,49 @@
             overflow-x: hidden;
         }
 
+        .language-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #ffd700;
+            border-radius: 30px;
+            padding: 10px 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .language-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            color: #666;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, #8b0000, #ff6b6b);
+            color: white;
+        }
+
+        .lang-btn:hover {
+            color: #8b0000;
+        }
+
         .mandala {
             position: fixed;
             width: 400px;
@@ -112,6 +155,17 @@
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.1); }
+        }
+
+        .kalash {
+            font-size: 60px;
+            animation: bounce 2s ease-in-out infinite;
+            margin-bottom: 30px;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
         }
 
         h1 {
@@ -231,28 +285,7 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-top: 10px;
-        }
-
-        .message {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 50px 40px;
-            border-radius: 20px;
-            margin: 40px 0;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            border: 3px solid #ffd700;
-            text-align: center;
-            font-size: 1.3em;
-            line-height: 1.8;
-            color: #2c1810;
-            animation: fadeIn 2s ease-in;
-        }
-
-        .blessing {
-            font-size: 1.5em;
-            color: #8b0000;
-            font-style: italic;
-            margin-top: 30px;
-            font-weight: bold;
+            display: block;
         }
 
         .venue-section {
@@ -391,6 +424,28 @@
             background-color: #ff6b6b;
         }
 
+        .message {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 50px 40px;
+            border-radius: 20px;
+            margin: 40px 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border: 3px solid #ffd700;
+            text-align: center;
+            font-size: 1.3em;
+            line-height: 1.8;
+            color: #2c1810;
+            animation: fadeIn 2s ease-in;
+        }
+
+        .blessing {
+            font-size: 1.5em;
+            color: #8b0000;
+            font-style: italic;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+
         .decorative-flower {
             position: absolute;
             width: 60px;
@@ -409,14 +464,8 @@
             to { transform: rotate(360deg); }
         }
 
-        .kalash {
-            font-size: 60px;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+        .hindi-text {
+            display: none;
         }
 
         @media (max-width: 768px) {
@@ -494,6 +543,17 @@
 
             .slide-text {
                 font-size: 1.5em;
+            }
+
+            .language-toggle {
+                top: 10px;
+                right: 10px;
+                padding: 8px 15px;
+            }
+
+            .lang-btn {
+                font-size: 14px;
+                padding: 4px 8px;
             }
         }
 
@@ -595,6 +655,13 @@
     </style>
 </head>
 <body>
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button class="lang-btn active" onclick="changeLanguage('en')" id="btn-en">English</button>
+        <span style="color: #ffd700;">|</span>
+        <button class="lang-btn" onclick="changeLanguage('hi')" id="btn-hi">हिंदी</button>
+    </div>
+
     <div class="mandala"></div>
     
     <div class="container">
@@ -607,98 +674,126 @@
             <div class="om-symbol">ॐ</div>
             <div class="kalash">🪔</div>
             
-            <h1>You are cordially invited to celebrate</h1>
+            <h1 class="english-text">A heartfelt invitation to you and your family to celebrate</h1>
+            <h1 class="hindi-text">आप सपरिवार सादर आमंत्रित हैं</h1>
             <div class="divider"></div>
             
-            <div class="silver-text">Silver Jubilee</div>
-            <p style="font-size: 1.5em; color: #666; margin: 10px 0;">25 Years of Togetherness</p>
+            <div class="silver-text english-text">Silver Jubilee</div>
+            <div class="silver-text hindi-text">सिल्वर जुबली समारोह</div>
+            <p class="english-text" style="font-size: 1.5em; color: #666; margin: 10px 0;">of our beloved parents</p>
+            <p class="hindi-text" style="font-size: 1.5em; color: #666; margin: 10px 0;">25 वर्षों के प्रेम, साथ और विश्वास का उत्सव</p>
             
-            <div class="names">
+            <div class="names english-text">
                 Mukesh <span class="ampersand">&</span> Babita
+            </div>
+            <div class="names hindi-text">
+                मुकेश <span class="ampersand">एवं</span> बबिता
             </div>
             
             <div class="divider"></div>
             
-            <div class="date">
+            <div class="date english-text">
                 25th February, 2026
+            </div>
+            <div class="date hindi-text">
+                25 फरवरी, 2026
             </div>
         </div>
 
         <div class="date-section">
-            <h2 style="text-align: center; color: #8b0000; font-size: 2em; margin-bottom: 30px;">
+            <h2 class="english-text" style="text-align: center; color: #8b0000; font-size: 2em; margin-bottom: 30px;">
                 🎊 Celebration Countdown 🎊
+            </h2>
+            <h2 class="hindi-text" style="text-align: center; color: #8b0000; font-size: 2em; margin-bottom: 30px;">
+                🎊 समारोह की उलटी गिनती 🎊
             </h2>
             
             <div class="countdown">
                 <div class="countdown-item">
                     <span class="countdown-number" id="days">00</span>
-                    <span class="countdown-label">Days</span>
+                    <span class="countdown-label english-text">Days</span>
+                    <span class="countdown-label hindi-text">दिन</span>
                 </div>
                 <div class="countdown-item">
                     <span class="countdown-number" id="hours">00</span>
-                    <span class="countdown-label">Hours</span>
+                    <span class="countdown-label english-text">Hours</span>
+                    <span class="countdown-label hindi-text">घंटे</span>
                 </div>
                 <div class="countdown-item">
                     <span class="countdown-number" id="minutes">00</span>
-                    <span class="countdown-label">Minutes</span>
+                    <span class="countdown-label english-text">Minutes</span>
+                    <span class="countdown-label hindi-text">मिनट</span>
                 </div>
                 <div class="countdown-item">
                     <span class="countdown-number" id="seconds">00</span>
-                    <span class="countdown-label">Seconds</span>
+                    <span class="countdown-label english-text">Seconds</span>
+                    <span class="countdown-label hindi-text">सेकंड</span>
                 </div>
             </div>
         </div>
 
         <div class="venue-section">
             <div class="venue-icon">📍</div>
-            <h2 class="venue-title">Venue</h2>
+            <h2 class="venue-title english-text">Venue</h2>
+            <h2 class="venue-title hindi-text">कार्यक्रम स्थल</h2>
             <div class="venue-details">
-                <strong>Hotel Gunina</strong><br>
+                <strong>HOTEL SRI GUNINA PRIDE</strong><br>
                 Lohiya Nagar, Godda
             </div>
         </div>
 
         <div class="gallery-section">
-            <h2 class="gallery-title">💑 Celebrating 25 Years of Love 💑</h2>
+            <h2 class="gallery-title english-text">💑 Celebrating 25 Years of Love 💑</h2>
+            <h2 class="gallery-title hindi-text">💑 25 वर्षों की यादें, मुस्कानें और अपार प्रेम 💑</h2>
             
             <div class="slideshow-container">
                 <div class="slide active">
                     <div class="slide-content">
                         <div class="slide-icon">💝</div>
-                        <div class="slide-text">25 Years of Love</div>
-                        <div class="slide-subtext">A journey of togetherness</div>
+                        <div class="slide-text english-text">25 Years of Love</div>
+                        <div class="slide-text hindi-text">25 साल का प्यार</div>
+                        <div class="slide-subtext english-text">A journey of togetherness</div>
+                        <div class="slide-subtext hindi-text">साथ की यात्रा</div>
                     </div>
                 </div>
 
                 <div class="slide">
                     <div class="slide-content">
                         <div class="slide-icon">💍</div>
-                        <div class="slide-text">Mukesh & Babita</div>
-                        <div class="slide-subtext">United in love since 2001</div>
+                        <div class="slide-text english-text">Mukesh & Babita</div>
+                        <div class="slide-text hindi-text">मुकेश और बबिता</div>
+                        <div class="slide-subtext english-text">United in love since 2001</div>
+                        <div class="slide-subtext hindi-text">2001 से प्यार में एक</div>
                     </div>
                 </div>
 
                 <div class="slide">
                     <div class="slide-content">
                         <div class="slide-icon">🌺</div>
-                        <div class="slide-text">Silver Jubilee</div>
-                        <div class="slide-subtext">Celebrating precious memories</div>
+                        <div class="slide-text english-text">Silver Jubilee</div>
+                        <div class="slide-text hindi-text">सिल्वर जुबली</div>
+                        <div class="slide-subtext english-text">Celebrating precious memories</div>
+                        <div class="slide-subtext hindi-text">अनमोल यादों का जश्न</div>
                     </div>
                 </div>
 
                 <div class="slide">
                     <div class="slide-content">
                         <div class="slide-icon">🎊</div>
-                        <div class="slide-text">Family & Friends</div>
-                        <div class="slide-subtext">Join us in this celebration</div>
+                        <div class="slide-text english-text">Family & Friends</div>
+                        <div class="slide-text hindi-text">परिवार और मित्र</div>
+                        <div class="slide-subtext english-text">Join us in this celebration</div>
+                        <div class="slide-subtext hindi-text">इस उत्सव में शामिल हों</div>
                     </div>
                 </div>
 
                 <div class="slide">
                     <div class="slide-content">
                         <div class="slide-icon">🙏</div>
-                        <div class="slide-text">Blessed Together</div>
-                        <div class="slide-subtext">25 years of blessings</div>
+                        <div class="slide-text english-text">Blessed Together</div>
+                        <div class="slide-text hindi-text">साथ आशीर्वादित</div>
+                        <div class="slide-subtext english-text">25 years of blessings</div>
+                        <div class="slide-subtext hindi-text">25 साल के आशीर्वाद</div>
                     </div>
                 </div>
             </div>
@@ -713,13 +808,23 @@
         </div>
 
         <div class="message">
-            <p>
+            <p class="english-text">
                 Twenty-five years of love, laughter, and beautiful memories!<br>
                 Join us as we celebrate this golden milestone in the journey of<br>
                 our beloved parents.
             </p>
-            <div class="blessing">
+            <p class="hindi-text">
+                प्यार, हंसी और खूबसूरत यादों के पच्चीस साल!<br>
+                हम आपसे अनुरोध करते हैं कि
+                हमारे माता-पिता के इस<br>
+                सुनहरे पड़ाव पर अपनी उपस्थिति देकर<br>
+                उनके आनंद में सहभागी बनें।
+            </p>
+            <div class="blessing english-text">
                 "May their bond continue to grow stronger with each passing year"
+            </div>
+            <div class="blessing hindi-text">
+                "उनका बंधन हर गुजरते साल के साथ और मजबूत होता रहे"
             </div>
             <div style="margin-top: 30px; font-size: 1.8em;">
                 🌺 🪔 🌺
@@ -796,6 +901,38 @@
 
         showSlides(slideIndex);
         startAutoSlide();
+
+        // Language Toggle Function
+        function changeLanguage(lang) {
+            const englishElements = document.querySelectorAll('.english-text');
+            const hindiElements = document.querySelectorAll('.hindi-text');
+            const btnEn = document.getElementById('btn-en');
+            const btnHi = document.getElementById('btn-hi');
+
+            if (lang === 'hi') {
+                // Hide English, Show Hindi
+                englishElements.forEach(el => {
+                    el.style.display = 'none';
+                });
+                hindiElements.forEach(el => {
+                    el.style.display = 'block';
+                });
+
+                btnEn.classList.remove('active');
+                btnHi.classList.add('active');
+            } else {
+                // Hide Hindi, Show English
+                hindiElements.forEach(el => {
+                    el.style.display = 'none';
+                });
+                englishElements.forEach(el => {
+                    el.style.display = 'block';
+                });
+
+                btnEn.classList.add('active');
+                btnHi.classList.remove('active');
+            }
+        }
     </script>
 </body>
 </html>
