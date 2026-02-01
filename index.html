@@ -668,26 +668,6 @@
             color: #be3c3c;
             font-weight: bold;
         }
-        /* ADD TO CALENDAR BUTTON */
-        .add-calendar-btn {
-            display: inline-block;
-            margin-top: 12px;
-            padding: 6px 16px;
-            font-size: 0.65em;
-            background: #ffd700;
-            color: #8b0000;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            border: 1px solid #8b0000;
-            transition: all 0.3s ease;
-        }
-        
-        .add-calendar-btn:hover {
-            background: #8b0000;
-            color: #fff;
-        }
-
     </style>
 </head>
 <body>
@@ -731,19 +711,11 @@
             <div class="date english-text">
                 25th February, 2026<br>
             <span class="event-time">⏰ 7:00 PM onwards</span>
-               <a class="add-calendar-btn" id="addToCalendar">
-                    📅 Add to Calendar
-                </a>
             </div>
 
             <div class="date hindi-text">
                 25 फरवरी, 2026<br>
             <span class="event-time">⏰ शाम 7:00 बजे से</span>
-                <a class="add-calendar-btn"
-                   href="silver-jubilee.ics"
-                   download>
-                   📅 कैलेंडर में जोड़ें
-                </a>
             </div>
 
         </div>
@@ -993,6 +965,7 @@ document.getElementById("addToCalendar").addEventListener("click", function () {
     </script>
 </body>
 </html>
+
 
 
 
