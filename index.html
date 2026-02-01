@@ -687,26 +687,6 @@
             background: #8b0000;
             color: #fff;
         }
-        <script>
-document.getElementById("addToCalendar").addEventListener("click", function () {
-    const isMobile = /Android|iPhone|iPad/i.test(navigator.userAgent);
-
-    if (isMobile) {
-        // 📱 Mobile → open calendar app via .ics
-        window.location.href = "silver-jubilee.ics";
-    } else {
-        // 💻 Desktop → Google Calendar
-        window.open(
-            "https://www.google.com/calendar/render?action=TEMPLATE" +
-            "&text=Silver+Jubilee+Celebration" +
-            "&dates=20260225T190000/20260225T230000" +
-            "&details=Join+us+to+celebrate+25+years+of+love" +
-            "&location=Hotel+Sri+Gunina+Pride,+Godda",
-            "_blank"
-        );
-    }
-});
-</script>
 
     </style>
 </head>
@@ -992,9 +972,28 @@ document.getElementById("addToCalendar").addEventListener("click", function () {
                 btnHi.classList.remove('active');
             }
         }
+document.getElementById("addToCalendar").addEventListener("click", function () {
+    const isMobile = /Android|iPhone|iPad/i.test(navigator.userAgent);
+
+    if (isMobile) {
+        // 📱 Mobile → open calendar app via .ics
+        window.location.href = "silver-jubilee.ics";
+    } else {
+        // 💻 Desktop → Google Calendar
+        window.open(
+            "https://www.google.com/calendar/render?action=TEMPLATE" +
+            "&text=Silver+Jubilee+Celebration" +
+            "&dates=20260225T190000/20260225T230000" +
+            "&details=Join+us+to+celebrate+25+years+of+love" +
+            "&location=Hotel+Sri+Gunina+Pride,+Godda",
+            "_blank"
+        );
+    }
+});
     </script>
 </body>
 </html>
+
 
 
 
