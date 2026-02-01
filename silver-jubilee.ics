@@ -1,0 +1,11 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+SUMMARY:Silver Jubilee Celebration – Mukesh & Babita
+DTSTART:20260225T190000
+DTEND:20260225T230000
+LOCATION:Hotel Sri Gunina Pride, Godda
+DESCRIPTION:Join us to celebrate 25 years of love and togetherness.
+END:VEVENT
+END:VCALENDAR
