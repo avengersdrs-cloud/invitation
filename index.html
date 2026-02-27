@@ -731,6 +731,60 @@
         padding: 8px 18px;
     }
 }
+        /* PREMIUM ANNIVERSARY BOX */
+.anniversary-box {
+    margin: 30px auto;
+    padding: 25px;
+    max-width: 700px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);
+    border-radius: 18px;
+    position: relative;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+    border: 2px solid #ffd700;
+    animation: fadeBox 1s ease-in-out;
+}
+
+/* Golden top decorative line */
+.anniversary-box::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: 20%;
+    width: 60%;
+    height: 4px;
+    background: linear-gradient(to right, transparent, #ffd700, transparent);
+    border-radius: 10px;
+}
+
+/* Highlight dates */
+.anniversary-box strong {
+    color: #8b0000;
+}
+
+/* Event details */
+.event-details {
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 1px dashed #8b0000;
+    font-weight: bold;
+    color: #8b0000;
+}
+
+/* Smooth appearance */
+@keyframes fadeBox {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile adjustment */
+@media (max-width: 480px) {
+    .anniversary-box {
+        padding: 18px;
+        font-size: 0.85em;
+    }
+}
     </style>
 </head>
 <body>
@@ -811,15 +865,32 @@
             
             <div class="divider"></div>
             
-            <div class="date english-text">
-                25th February, 2026<br>
-            <span class="event-time">⏰ 7:00 PM onwards</span>
-            </div>
+<!-- Anniversary Update Box -->
 
-            <div class="date hindi-text">
-                25 फरवरी, 2026<br>
-            <span class="event-time">⏰ शाम 7:00 बजे से</span>
-            </div>
+<div class="anniversary-box english-text">
+    <p>
+        Our 25th Wedding Anniversary was on <strong>25th February 2026</strong>,<br>
+        but the celebration will be held on <strong>5th March 2026</strong><br>
+        due to unavoidable reasons.
+    </p>
+
+    <div class="event-details">
+        📅 <strong>Event Date:</strong> 5th March 2026<br>
+        ⏰ <strong>Time:</strong> 7:00 PM onwards
+    </div>
+</div>
+
+<div class="anniversary-box hindi-text">
+    <p>
+        हमारी 25वीं शादी की सालगिरह <strong>25 फरवरी 2026</strong> को थी,<br>
+        लेकिन अपरिहार्य कारणों से समारोह अब <strong>5 मार्च 2026</strong> को आयोजित किया जाएगा।
+    </p>
+
+    <div class="event-details">
+        📅 <strong>कार्यक्रम तिथि:</strong> 5 मार्च 2026<br>
+        ⏰ <strong>समय:</strong> शाम 7:00 बजे से
+    </div>
+</div>
 
         </div>
 
@@ -1031,6 +1102,7 @@
     </script>
 </body>
 </html>
+
 
 
 
